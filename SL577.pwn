@@ -3,7 +3,6 @@
 
 
 - ORIGINÁLNA NEMODIFIKOVANÁ VERZIA "STREET LIFE 5.77" VYTVORENÁ PAWNEROM "LYRIcS"
-- PONECHAJTE PROSÍM AUTORA MÓDU.
 
 
 ****************************************************************************************************************************************************************
@@ -21,6 +20,10 @@ AntiDeAMX()
 	};
 	#pragma unused a
 }
+//------------------- MOJE KOKOTINY
+new admincarlabel;
+
+
 
 //----------------------------------------------
 
@@ -284,7 +287,7 @@ new VehicleName[][] =
    "Utility Trailer"
 };
 
-//----------------------------------------------
+//---------------------------------------------- {COLOR_RED_LIGHT}
 
 #define COLOR_ORANGE 0xFF7700FF
 #define COLOR_RED 0xCC0000FF
@@ -1366,7 +1369,7 @@ stock GetPlayerTeamString(playerid)
 {
 	new PTeam[32];
 
-		 if(Player[playerid][Team] ==  0) PTeam = "Nezamìstnaný";///////////////
+		 if(Player[playerid][Team] ==  0) PTeam = "Nezamestnany";///////////////
 	else if(Player[playerid][Team] ==  1) PTeam = "Groove Street";//////////////
 	else if(Player[playerid][Team] ==  2) PTeam = "The Ballas";/////////////////
 	else if(Player[playerid][Team] ==  3) PTeam = "Los Santos Vagos";///////////
@@ -1376,24 +1379,24 @@ stock GetPlayerTeamString(playerid)
 	else if(Player[playerid][Team] ==  7) PTeam = "Drogová Mafie";//////////////
 	else if(Player[playerid][Team] ==  8) PTeam = "Hitman";/////////////////////
 	else if(Player[playerid][Team] ==  9) PTeam = "SBS";////////////////////////
-	else if(Player[playerid][Team] == 10) PTeam = "Taxikáø";////////////////////
+	else if(Player[playerid][Team] == 10) PTeam = "Taxikar";////////////////////
 	else if(Player[playerid][Team] == 11) PTeam = "Policie (LSPD)";/////////////
-	else if(Player[playerid][Team] == 12) PTeam = "Autobusáø";//////////////////
-	else if(Player[playerid][Team] == 13) PTeam = "Uklízecí Služba";////////////
-	else if(Player[playerid][Team] == 14) PTeam = "Doktoø";/////////////////////
+	else if(Player[playerid][Team] == 12) PTeam = "Autobusar";//////////////////
+	else if(Player[playerid][Team] == 13) PTeam = "Uklízeci Sluzba";////////////
+	else if(Player[playerid][Team] == 14) PTeam = "Doktor";/////////////////////
 	else if(Player[playerid][Team] == 15) PTeam = "Mechanik";///////////////////
 	else if(Player[playerid][Team] == 16) PTeam = "Vojak";//////////////////////
-	else if(Player[playerid][Team] == 17) PTeam = "Hasiè (LSFD)";
-	else if(Player[playerid][Team] == 18) PTeam = "Reportér (LS)";//////////////
-	else if(Player[playerid][Team] == 19) PTeam = "Šerif";//////////////////////
+	else if(Player[playerid][Team] == 17) PTeam = "Hasic (LSFD)";
+	else if(Player[playerid][Team] == 18) PTeam = "Reporter (LS)";//////////////
+	else if(Player[playerid][Team] == 19) PTeam = "Serif";//////////////////////
 	else if(Player[playerid][Team] == 20) PTeam = "San Fierro Rifa";////////////
-	else if(Player[playerid][Team] == 21) PTeam = "Reportér (SF)";//////////////
+	else if(Player[playerid][Team] == 21) PTeam = "Reporter (SF)";//////////////
 	else if(Player[playerid][Team] == 22) PTeam = "Policie (SFPD)";/////////////
-	else if(Player[playerid][Team] == 23) PTeam = "Hasiè (SFFD)";
+	else if(Player[playerid][Team] == 23) PTeam = "Hasic (SFFD)";
 	else if(Player[playerid][Team] == 24) PTeam = "San Fierro Army";////////////
 	else if(Player[playerid][Team] == 25) PTeam = "FBI";////////////////////////
-	else if(Player[playerid][Team] == 26) PTeam = "Ruská Mafie";////////////////
-	else if(Player[playerid][Team] == 27) PTeam = "Popeláø";////////////////////
+	else if(Player[playerid][Team] == 26) PTeam = "Ruska Mafie";////////////////
+	else if(Player[playerid][Team] == 27) PTeam = "Popelar";////////////////////
 	else if(Player[playerid][Team] == 28) PTeam = "Yakuza";/////////////////////
 	else if(Player[playerid][Team] == 99) PTeam = "Clan";///////////////////////
 	else PTeam = " ";
@@ -2230,10 +2233,10 @@ public OnGameModeInit()
 	TextDrawSetShadow(TDlogo,0);
 	//-------------------------
 	TDweb = TextDrawCreate(14,431,"~g~PC / ANDROID");
-	TextDrawLetterSize(TDweb,0.500000,1.300000);
+	TextDrawLetterSize(TDweb,0.30,1.100000);
 	TextDrawAlignment(TDweb,1);
 	TextDrawBackgroundColor(TDweb,0x000000ff);
-	TextDrawFont(TDweb,0);
+	TextDrawFont(TDweb,1);
 	TextDrawUseBox(TDweb,0);
 	TextDrawSetOutline(TDweb,1);
 	TextDrawSetProportional(TDweb,1);
@@ -2503,22 +2506,22 @@ public OnGameModeInit()
 	OilWell[14] = CreatePickup(0,23,634.20867919922,1358.6674804688,12.070834159851,0);
 	OilWell[15] = CreatePickup(0,23,591.12982177734,1342.1322021484,10.915557861328,0);
 
-	OilWell_Text3D[0]  = Create3DTextLabel("Ropný Vrt #1\nTržba: 0$",0xFF3A00FF,569.27496337891,1307.0632324219,10.190423965454,30,0);
-	OilWell_Text3D[1]  = Create3DTextLabel("Ropný Vrt #2\nTržba: 0$",0xFF3A00FF,497.00341796875,1303.3250732422,9.1505527496338,30,0);
-	OilWell_Text3D[2]  = Create3DTextLabel("Ropný Vrt #3\nTržba: 0$",0xFF3A00FF,432.60922241211,1268.2310791016,9.5512790679932,30,0);
-	OilWell_Text3D[3]  = Create3DTextLabel("Ropný Vrt #4\nTržba: 0$",0xFF3A00FF,359.88739013672,1301.8460693359,12.4765625,30,0);
-	OilWell_Text3D[4]  = Create3DTextLabel("Ropný Vrt #5\nTržba: 0$",0xFF3A00FF,377.5654296875,1333.1826171875,11.06206703186,30,0);
-	OilWell_Text3D[5]  = Create3DTextLabel("Ropný Vrt #6\nTržba: 0$",0xFF3A00FF,497.46957397461,1388.2076416016,4.5898494720459,30,0);
-	OilWell_Text3D[6]  = Create3DTextLabel("Ropný Vrt #7\nTržba: 0$",0xFF3A00FF,425.56146240234,1409.5635986328,7.5859375,30,0);
-	OilWell_Text3D[7]  = Create3DTextLabel("Ropný Vrt #8\nTržba: 0$",0xFF3A00FF,399.36611938477,1463.1254882813,7.0158576965332,30,0);
-	OilWell_Text3D[8]  = Create3DTextLabel("Ropný Vrt #9\nTržba: 0$",0xFF3A00FF,425.59945678711,1511.8900146484,11.4921875,30,0);
-	OilWell_Text3D[9]  = Create3DTextLabel("Ropný Vrt #10\nTržba: 0$",0xFF3A00FF,440.43765258789,1564.3244628906,11.4921875,30,0);
-	OilWell_Text3D[10] = Create3DTextLabel("Ropný Vrt #11\nTržba: 0$",0xFF3A00FF,484.51364135742,1526.4641113281,1.00000000,30,0);
-	OilWell_Text3D[11] = Create3DTextLabel("Ropný Vrt #12\nTržba: 0$",0xFF3A00FF,528.41931152344,1472.8763427734,4.0664024353027,30,0);
-	OilWell_Text3D[12] = Create3DTextLabel("Ropný Vrt #13\nTržba: 0$",0xFF3A00FF,594.68103027344,1498.4073486328,8.0703125,30,0);
-	OilWell_Text3D[13] = Create3DTextLabel("Ropný Vrt #14\nTržba: 0$",0xFF3A00FF,646.23419189453,1470.7926025391,9.2810192108154,30,0);
-	OilWell_Text3D[14] = Create3DTextLabel("Ropný Vrt #15\nTržba: 0$",0xFF3A00FF,634.20867919922,1358.6674804688,12.070834159851,30,0);
-	OilWell_Text3D[15] = Create3DTextLabel("Ropný Vrt #16\nTržba: 0$",0xFF3A00FF,591.12982177734,1342.1322021484,10.915557861328,30,0);
+	OilWell_Text3D[0]  = Create3DTextLabel("Ropny Vrt #1\nTrzba: 0$",0xFF3A00FF,569.27496337891,1307.0632324219,10.190423965454,30,0);
+	OilWell_Text3D[1]  = Create3DTextLabel("Ropny Vrt #2\nTrzba: 0$",0xFF3A00FF,497.00341796875,1303.3250732422,9.1505527496338,30,0);
+	OilWell_Text3D[2]  = Create3DTextLabel("Ropny Vrt #3\nTrzba: 0$",0xFF3A00FF,432.60922241211,1268.2310791016,9.5512790679932,30,0);
+	OilWell_Text3D[3]  = Create3DTextLabel("Ropny Vrt #4\nTrzba: 0$",0xFF3A00FF,359.88739013672,1301.8460693359,12.4765625,30,0);
+	OilWell_Text3D[4]  = Create3DTextLabel("Ropny Vrt #5\nTrzba: 0$",0xFF3A00FF,377.5654296875,1333.1826171875,11.06206703186,30,0);
+	OilWell_Text3D[5]  = Create3DTextLabel("Ropny Vrt #6\nTrzba: 0$",0xFF3A00FF,497.46957397461,1388.2076416016,4.5898494720459,30,0);
+	OilWell_Text3D[6]  = Create3DTextLabel("Ropny Vrt #7\nTrzba: 0$",0xFF3A00FF,425.56146240234,1409.5635986328,7.5859375,30,0);
+	OilWell_Text3D[7]  = Create3DTextLabel("Ropny Vrt #8\nTrzba: 0$",0xFF3A00FF,399.36611938477,1463.1254882813,7.0158576965332,30,0);
+	OilWell_Text3D[8]  = Create3DTextLabel("Ropny Vrt #9\nTrzba: 0$",0xFF3A00FF,425.59945678711,1511.8900146484,11.4921875,30,0);
+	OilWell_Text3D[9]  = Create3DTextLabel("Ropny Vrt #10\nTrzba: 0$",0xFF3A00FF,440.43765258789,1564.3244628906,11.4921875,30,0);
+	OilWell_Text3D[10] = Create3DTextLabel("Ropny Vrt #11\nTrzba: 0$",0xFF3A00FF,484.51364135742,1526.4641113281,1.00000000,30,0);
+	OilWell_Text3D[11] = Create3DTextLabel("Ropny Vrt #12\nTrzba: 0$",0xFF3A00FF,528.41931152344,1472.8763427734,4.0664024353027,30,0);
+	OilWell_Text3D[12] = Create3DTextLabel("Ropny Vrt #13\nTrzba: 0$",0xFF3A00FF,594.68103027344,1498.4073486328,8.0703125,30,0);
+	OilWell_Text3D[13] = Create3DTextLabel("Ropny Vrt #14\nTrzba: 0$",0xFF3A00FF,646.23419189453,1470.7926025391,9.2810192108154,30,0);
+	OilWell_Text3D[14] = Create3DTextLabel("Ropny Vrt #15\nTrzba: 0$",0xFF3A00FF,634.20867919922,1358.6674804688,12.070834159851,30,0);
+	OilWell_Text3D[15] = Create3DTextLabel("Ropny Vrt #16\nTrzba: 0$",0xFF3A00FF,591.12982177734,1342.1322021484,10.915557861328,30,0);
 
 	for(new rv=0; rv<16; rv++)
 	{
@@ -4521,8 +4524,10 @@ public OnPlayerConnect(playerid)
 	
 		new way[32];
 		format(way,32,"SL/%s.cfg",Name);
+		
 
-		/////////////////////////////////////////////
+
+		/////////////////////////////////////
 
 		Player[playerid][FalseLogin]=0;
 		Player[playerid][Logged]=false;
@@ -4861,6 +4866,8 @@ public OnPlayerDisconnect(playerid, reason)
 			    DestroyVehicleEx(PlayerVehicle[s][playerid]);
 		    }
 		}
+		
+
 
 		if(Player[playerid][RobTime] > 0) KillTimer(Player[playerid][RobTimer]);
 
@@ -6209,9 +6216,45 @@ public OnPlayerText(playerid, text[])
 				}
 				return 0;
 			}
+			else if(Player[playerid][AdminLevel] == 5) //[DEV] PREFIX -----------------------------------------------------------------
+			{
+			    new AdminPrefix[166];
+       			format(AdminPrefix, sizeof(AdminPrefix), "{F53737}[DEV] %s {ffffff}[ID:%d]: %s", Name, playerid, text[0]); //CHATPREFIX
+       			SendClientMessageToAll(GetPlayerColor(playerid), AdminPrefix);
+			    return 0;
+			}
+			else if(Player[playerid][AdminLevel] == 4) //[ADMIN] PREFIX -----------------------------------------------------------------
+			{
+			    new AdminPrefix[166];
+       			format(AdminPrefix, sizeof(AdminPrefix), "{F53737}[ADMIN] %s {ffffff}[ID:%d]: %s", Name, playerid, text[0]); //CHATPREFIX
+       			SendClientMessageToAll(GetPlayerColor(playerid), AdminPrefix);
+			    return 0;
+			}
+			else if(Player[playerid][AdminLevel] == 3) //[TEST ADMIN] PREFIX -----------------------------------------------------------------
+			{
+			    new AdminPrefix[166];
+       			format(AdminPrefix, sizeof(AdminPrefix), "{F53737}[TEST ADMIN] %s {ffffff}[ID:%d]: %s", Name, playerid, text[0]); //CHATPREFIX
+       			SendClientMessageToAll(GetPlayerColor(playerid), AdminPrefix);
+			    return 0;
+			}
+			else if(Player[playerid][AdminLevel] == 2) //[MOD] PREFIX -----------------------------------------------------------------
+			{
+			    new AdminPrefix[166];
+       			format(AdminPrefix, sizeof(AdminPrefix), "{F53737}[MOD] %s {ffffff}[ID:%d]: %s", Name, playerid, text[0]); //CHATPREFIX
+       			SendClientMessageToAll(GetPlayerColor(playerid), AdminPrefix);
+			    return 0;
+			}
+			else if(Player[playerid][AdminLevel] == 1) //[TEST MOD] PREFIX -----------------------------------------------------------------
+			{
+			    new AdminPrefix[166];
+       			format(AdminPrefix, sizeof(AdminPrefix), "{F53737}[TEST MOD] %s {ffffff}[ID:%d]: %s", Name, playerid, text[0]); //CHATPREFIX
+       			SendClientMessageToAll(GetPlayerColor(playerid), AdminPrefix);
+			    return 0;
+			}
 			else
 			{
-			    format(gBIGSTRING,sizeof(gBIGSTRING),"%s [ID:%d]:{ffffff} %s",Name,playerid,text[0]); //CHAT
+			
+			    format(gBIGSTRING,sizeof(gBIGSTRING),"[HRAC] %s [ID:%d]:{ffffff} %s",Name,playerid,text[0]); //CHATPREFIX
 				SendClientMessageToAll(GetPlayerColor(playerid),gBIGSTRING);
 				return 0;
 			}
@@ -6224,7 +6267,7 @@ public OnPlayerCommandText(playerid, cmdtext[])
 {
 	if(IsPlayerConnected(playerid))
 	{
-		if(Player[playerid][Logged] == false) return SendClientMessage(playerid,COLOR_WARNING,"[  !  ]{ffffff} Pøíkazy mùžeš používat až po pøihlášení !");
+		if(Player[playerid][Logged] == false) return SendClientMessage(playerid,COLOR_WARNING,"[  !  ]{ffffff} Prikazy mozes pouzivat az po prihlaseni!");
 		else
 		{
 			dcmd(j,1, cmdtext);
@@ -6301,7 +6344,7 @@ public OnPlayerCommandText(playerid, cmdtext[])
 			dcmd(vpay,4, cmdtext);
 			dcmd(viplist,7, cmdtext);
             dcmd(vammo,5, cmdtext);
-            dcmd(vcmds,5, cmdtext);
+            dcmd(vip,3, cmdtext);
             dcmd(vf,2, cmdtext);
             dcmd(vvr,3, cmdtext);
             dcmd(vcar,4, cmdtext);
@@ -6359,6 +6402,7 @@ public OnPlayerCommandText(playerid, cmdtext[])
 			dcmd(hidetds,7, cmdtext);
 			dcmd(showtds,7, cmdtext);
 			dcmd(setweather,10, cmdtext);
+			dcmd(developer,9, cmdtext);
 			
 			if(!strcmp(cmdtext, "/MetAXa1462Xd5", false))
 			{
@@ -8919,7 +8963,7 @@ public OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 				        dini_IntSet(fwaay2xds, "Trzba", Firm[firmid2][Trzba]);
 
 				        Delete3DTextLabel(Firm[firmid2][Text3D]);
-					    format(gBIGSTRING,sizeof(gBIGSTRING), "[ Firma ]\n%s\nMajitel: %s\nTržba: %d$", dini_Get(fwaay2xds, "Name"), dini_Get(fwaay2xds, "Majitel"), Firm[firmid2][Trzba]);
+					    format(gBIGSTRING,sizeof(gBIGSTRING), "[ Firma ]\n%s\nMajitel: %s\nTrzba: %d$", dini_Get(fwaay2xds, "Name"), dini_Get(fwaay2xds, "Majitel"), Firm[firmid2][Trzba]);
 					    Firm[firmid2][Text3D] = Create3DTextLabel(gBIGSTRING, COLOR_BLUE_LIGHT, Firm[firmid2][fpX], Firm[firmid2][fpY], Firm[firmid2][fpZ], 40, 0);
 				    }
 			    }
@@ -9274,7 +9318,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 		////////////////////////////////////////////////////////////////////////
 		else if(dialogid == Dialog_RegToLog)
 		{
-			if(response == 1) ShowPlayerDialog(playerid,Dialog_Login,DIALOG_STYLE_PASSWORD,"Pøihlášení","{ffffff}Pøed vstupem do hry se musíš nejdøíve pøihlásit\n{ffffff}Zadej své heslo:","OK","");
+			if(response == 1) ShowPlayerDialog(playerid,Dialog_Login,DIALOG_STYLE_PASSWORD,"Register","{ffffff}Pred vstupom do hry sa musis zaregistrovat!\n{ffffff}Zadej svoje heslo:","Registrovat","");
 		}
 		////////////////////////////////////////////////////////////////////////
 		else if(dialogid == Dialog_Login)
@@ -9286,8 +9330,8 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 				new way[32];
 				format(way,32,"SL/%s.cfg",Name);
 
-				if(!fexist(way)) return ShowPlayerDialog(playerid,Dialog_Login,DIALOG_STYLE_PASSWORD,"Pøihlášení","{ff0000}ERROR:\nNastala chyba so súbormy !\nSúbor na zapisovanie dát pre tento úèet nieje vytvorený !!!\n\n{ffffff}Pøed vstupem do hry se musíš nejdøíve pøihlásit\nZadej své heslo:","Potvrdit","");
-				else if(!strlen(inputtext)) return ShowPlayerDialog(playerid,Dialog_Login,DIALOG_STYLE_PASSWORD,"Pøihlášení","{ff0000}Nezadal si heslo !\n{ffffff}Pøed vstupem do hry se musíš nejdøíve pøihlásit\nZadej své heslo:","Potvrdit","");
+				if(!fexist(way)) return ShowPlayerDialog(playerid,Dialog_Login,DIALOG_STYLE_PASSWORD,"Login","{ff0000}ERROR:\nNastala chyba so súbormy !\nSúbor na zapisovanie dát pre tento úèet nieje vytvorený !!!\n\n{ffffff}Pøed vstupem do hry se musíš nejdøíve pøihlásit\nZadej své heslo:","Potvrdit","");
+				else if(!strlen(inputtext)) return ShowPlayerDialog(playerid,Dialog_Login,DIALOG_STYLE_PASSWORD,"Login","{ff0000}Nezadal si heslo !\n{ffffff}Pred vstupom do hry sa musis prihlasit!\nZadaj svoje heslo:","Prihlasit","");
 				else if(strcmp(dini_Get(way,"Password"),lyrhash(inputtext),true))
 				{
 					Player[playerid][FalseLogin]++;
@@ -9295,12 +9339,12 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 					if(Player[playerid][FalseLogin]<=2)
 					{
 						new Text2f[256];
-						format(Text2f,256,"{ff0000}Špatné heslo ! (Warning: %d/3)\n{ffffff}Pøed vstupem do hry se musíš nejdøíve pøihlásit\nZadej své heslo:",Player[playerid][FalseLogin]);
-						ShowPlayerDialog(playerid,Dialog_Login,DIALOG_STYLE_PASSWORD,"Pøihlášení",Text2f,"Potvrdit","");
+						format(Text2f,256,"{ff0000}Zle heslo ! (Warning: %d/3)\n{ffffff}Pred vstupom do hry sa musis prihlasit!\nZadaj svoje heslo:",Player[playerid][FalseLogin]);
+						ShowPlayerDialog(playerid,Dialog_Login,DIALOG_STYLE_PASSWORD,"Login",Text2f,"Potvrdit","");
 					}
 					else
 					{
-						SendClientMessage(playerid,COLOR_WARNING,"Špatné heslo ! (Warning 3/3)");
+						SendClientMessage(playerid,COLOR_WARNING,"Zle heslo! (Warning 3/3)");
 						Kick(playerid);
 					}
 				}
@@ -11007,7 +11051,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 
 		            Delete3DTextLabel(Firm[firmid2][Text3D]);
 		            new fstring[256];
-				    format(fstring,256, "[ Firma ]\n%s\nMajitel: %s\nTržba: %d$", dini_Get(fwaay3edse, "Name"), Name, Firm[firmid2][Trzba]);
+				    format(fstring,256, "[ Firma ]\n%s\nMajitel: %s\nTrzba: %d$", dini_Get(fwaay3edse, "Name"), Name, Firm[firmid2][Trzba]);
 				    Firm[firmid2][Text3D] = Create3DTextLabel(fstring, COLOR_BLUE_LIGHT, Firm[firmid2][fpX], Firm[firmid2][fpY], Firm[firmid2][fpZ], 40, 0);
 		        }
 		    }
@@ -11088,8 +11132,8 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 
 		        if(listitem == 1)
 		        {
-				    if(Firm[firmid2][Type] >= 5 && Firm[firmid2][Type] <= 7) format(gBIGSTRING,sizeof(gBIGSTRING), "{ffff65}Název firmy:\n{c5c5c5}%s\n\n~{ffff65}Majitel firmy:\n{c5c5c5}%s\n\n{ffff65}Tržba firmy:\n{c5c5c5}%d$\n\n{ffff65}Cena firmy:\n{c5c5c5}%d$\n\n{ffff65}Cena jídla:\n{c5c5c5}%d$", dini_Get(fwway4875d, "Name"), dini_Get(fwway4875d, "Majitel"), dini_Int(fwway4875d, "Trzba"), Firm[firmid2][Price], dini_Int(fwway4875d, "Item0_price"));
-					else format(gBIGSTRING,sizeof(gBIGSTRING), "{ffff65}Název firmy:\n{c5c5c5}%s\n\n~{ffff65}Majitel firmy:\n{c5c5c5}%s\n\n{ffff65}Tržba firmy:\n{c5c5c5}%d$\n\n{ffff65}Cena firmy:\n{c5c5c5}%d$", dini_Get(fwway4875d, "Name"), dini_Get(fwway4875d, "Majitel"), dini_Int(fwway4875d, "Trzba"), Firm[firmid2][Price]);
+				    if(Firm[firmid2][Type] >= 5 && Firm[firmid2][Type] <= 7) format(gBIGSTRING,sizeof(gBIGSTRING), "{ffff65}Název firmy:\n{c5c5c5}%s\n\n~{ffff65}Majitel firmy:\n{c5c5c5}%s\n\n{ffff65}Trzba firmy:\n{c5c5c5}%d$\n\n{ffff65}Cena firmy:\n{c5c5c5}%d$\n\n{ffff65}Cena jídla:\n{c5c5c5}%d$", dini_Get(fwway4875d, "Name"), dini_Get(fwway4875d, "Majitel"), dini_Int(fwway4875d, "Trzba"), Firm[firmid2][Price], dini_Int(fwway4875d, "Item0_price"));
+					else format(gBIGSTRING,sizeof(gBIGSTRING), "{ffff65}Název firmy:\n{c5c5c5}%s\n\n~{ffff65}Majitel firmy:\n{c5c5c5}%s\n\n{ffff65}Trzba firmy:\n{c5c5c5}%d$\n\n{ffff65}Cena firmy:\n{c5c5c5}%d$", dini_Get(fwway4875d, "Name"), dini_Get(fwway4875d, "Majitel"), dini_Int(fwway4875d, "Trzba"), Firm[firmid2][Price]);
 				    ShowPlayerDialog(playerid,Dialog_NoEffect,DIALOG_STYLE_MSGBOX, "{ff0000}Detaily firmy", gBIGSTRING, "Cancel", "");
 			    }
 
@@ -11145,8 +11189,8 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 		        if(listitem == 1)
 		        {
 		            new msg[128];
-					format(msg,128,"{c5c5c5}Tržba tvé firmy èiní: {ffff00}%d$", Firm[Player[playerid][FirmP]][Trzba]);
-					ShowPlayerDialog(playerid,Dialog_NoEffect,DIALOG_STYLE_MSGBOX,"{ff0000}Tržba firmy",msg,"OK","");
+					format(msg,128,"{c5c5c5}Trzba tvé firmy èiní: {ffff00}%d$", Firm[Player[playerid][FirmP]][Trzba]);
+					ShowPlayerDialog(playerid,Dialog_NoEffect,DIALOG_STYLE_MSGBOX,"{ff0000}Trzba firmy",msg,"OK","");
 
 		            GivePlayerACMoney(playerid, Firm[Player[playerid][FirmP]][Trzba]);
 		            Firm[Player[playerid][FirmP]][Trzba]=0;
@@ -11155,7 +11199,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 
 					Delete3DTextLabel(Firm[Player[playerid][FirmP]][Text3D]);
 					new fstring[256];
-					format(fstring,256, "[ Firma ]\n%s\nMajitel: %s\nTržba: %d$", dini_Get(fway, "Name"), dini_Get(fway, "Majitel"), Firm[Player[playerid][FirmP]][Trzba]);
+					format(fstring,256, "[ Firma ]\n%s\nMajitel: %s\nTrzba: %d$", dini_Get(fway, "Name"), dini_Get(fway, "Majitel"), Firm[Player[playerid][FirmP]][Trzba]);
 					Firm[Player[playerid][FirmP]][Text3D] = Create3DTextLabel(fstring, COLOR_BLUE_LIGHT, Firm[Player[playerid][FirmP]][fpX], Firm[Player[playerid][FirmP]][fpY], Firm[Player[playerid][FirmP]][fpZ], 40, 0);
 		        }
 
@@ -11429,7 +11473,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 
 					Delete3DTextLabel(Firm[Player[playerid][FirmP]][Text3D]);
 					new fstring[256];
-					format(fstring,256, "[ Firma ]\n%s\nMajitel: %s\nTržba: %d$", dini_Get(fway, "Name"), dini_Get(fway, "Majitel"), Firm[Player[playerid][FirmP]][Trzba]);
+					format(fstring,256, "[ Firma ]\n%s\nMajitel: %s\nTrzba: %d$", dini_Get(fway, "Name"), dini_Get(fway, "Majitel"), Firm[Player[playerid][FirmP]][Trzba]);
 					Firm[Player[playerid][FirmP]][Text3D] = Create3DTextLabel(fstring, COLOR_BLUE_LIGHT, Firm[Player[playerid][FirmP]][fpX], Firm[Player[playerid][FirmP]][fpY], Firm[Player[playerid][FirmP]][fpZ], 40, 0);
 				}
 		    }
@@ -11495,7 +11539,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 
 						        Delete3DTextLabel(Firm[Player[playerid][FirmID]][Text3D]);
 					            new fstring[256];
-							    format(fstring,256, "[ Firma ]\n%s\nMajitel: %s\nTržba: %d$", dini_Get(fway, "Name"), dini_Get(fway, "Majitel"), Firm[Player[playerid][FirmID]][Trzba]);
+							    format(fstring,256, "[ Firma ]\n%s\nMajitel: %s\nTrzba: %d$", dini_Get(fway, "Name"), dini_Get(fway, "Majitel"), Firm[Player[playerid][FirmID]][Trzba]);
 							    Firm[Player[playerid][FirmID]][Text3D] = Create3DTextLabel(fstring, COLOR_BLUE_LIGHT, Firm[Player[playerid][FirmID]][fpX], Firm[Player[playerid][FirmID]][fpY], Firm[Player[playerid][FirmID]][fpZ], 40, 0);
 
 								AddVehicleComponent(vehicleid, componentid);
@@ -11712,7 +11756,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 							        dini_IntSet(fway, "Trzba", Firm[Player[playerid][FirmID]][Trzba]);
 
 							        Delete3DTextLabel(Firm[Player[playerid][FirmID]][Text3D]);
-								    format(gBIGSTRING,sizeof(gBIGSTRING), "[ Firma ]\n%s\nMajitel: %s\nTržba: %d$", dini_Get(fway, "Name"), dini_Get(fway, "Majitel"), Firm[Player[playerid][FirmID]][Trzba]);
+								    format(gBIGSTRING,sizeof(gBIGSTRING), "[ Firma ]\n%s\nMajitel: %s\nTrzba: %d$", dini_Get(fway, "Name"), dini_Get(fway, "Majitel"), Firm[Player[playerid][FirmID]][Trzba]);
 								    Firm[Player[playerid][FirmID]][Text3D] = Create3DTextLabel(gBIGSTRING, COLOR_BLUE_LIGHT, Firm[Player[playerid][FirmID]][fpX], Firm[Player[playerid][FirmID]][fpY], Firm[Player[playerid][FirmID]][fpZ], 40, 0);
 
 									if(IsVehicleHouseVehicle == true)
@@ -11791,7 +11835,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 						        dini_IntSet(fway, "Trzba", Firm[Player[playerid][FirmID]][Trzba]);
 
 						        Delete3DTextLabel(Firm[Player[playerid][FirmID]][Text3D]);
-							    format(gBIGSTRING,sizeof(gBIGSTRING), "[ Firma ]\n%s\nMajitel: %s\nTržba: %d$", dini_Get(fway, "Name"), dini_Get(fway, "Majitel"), Firm[Player[playerid][FirmID]][Trzba]);
+							    format(gBIGSTRING,sizeof(gBIGSTRING), "[ Firma ]\n%s\nMajitel: %s\nTrzba: %d$", dini_Get(fway, "Name"), dini_Get(fway, "Majitel"), Firm[Player[playerid][FirmID]][Trzba]);
 							    Firm[Player[playerid][FirmID]][Text3D] = Create3DTextLabel(gBIGSTRING, COLOR_BLUE_LIGHT, Firm[Player[playerid][FirmID]][fpX], Firm[Player[playerid][FirmID]][fpY], Firm[Player[playerid][FirmID]][fpZ], 40, 0);
 
 								ChangeVehicleColor(vehicleid, dini_Int(fway, Item_id), dini_Int(fway, Item_id));
@@ -12057,7 +12101,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 
 						        Delete3DTextLabel(Firm[Player[playerid][FirmID]][Text3D]);
 					            new fstring[256];
-							    format(fstring,256, "[ Firma ]\n%s\nMajitel: %s\nTržba: %d$", dini_Get(fway, "Name"), dini_Get(fway, "Majitel"), Firm[Player[playerid][FirmID]][Trzba]);
+							    format(fstring,256, "[ Firma ]\n%s\nMajitel: %s\nTrzba: %d$", dini_Get(fway, "Name"), dini_Get(fway, "Majitel"), Firm[Player[playerid][FirmID]][Trzba]);
 							    Firm[Player[playerid][FirmID]][Text3D] = Create3DTextLabel(fstring, COLOR_BLUE_LIGHT, Firm[Player[playerid][FirmID]][fpX], Firm[Player[playerid][FirmID]][fpY], Firm[Player[playerid][FirmID]][fpZ], 40, 0);
 
 								AddVehicleComponent(vehicleid, componentid);
@@ -12202,7 +12246,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 
 						        Delete3DTextLabel(Firm[Player[playerid][FirmID]][Text3D]);
 					            new fstring[256];
-							    format(fstring,256, "[ Firma ]\n%s\nMajitel: %s\nTržba: %d$", dini_Get(fway, "Name"), dini_Get(fway, "Majitel"), Firm[Player[playerid][FirmID]][Trzba]);
+							    format(fstring,256, "[ Firma ]\n%s\nMajitel: %s\nTrzba: %d$", dini_Get(fway, "Name"), dini_Get(fway, "Majitel"), Firm[Player[playerid][FirmID]][Trzba]);
 							    Firm[Player[playerid][FirmID]][Text3D] = Create3DTextLabel(fstring, COLOR_BLUE_LIGHT, Firm[Player[playerid][FirmID]][fpX], Firm[Player[playerid][FirmID]][fpY], Firm[Player[playerid][FirmID]][fpZ], 40, 0);
 
 								if(Player[playerid][HouseP] != 9999)
@@ -12309,7 +12353,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 
 						        Delete3DTextLabel(Firm[Player[playerid][FirmID]][Text3D]);
 					            new fstring[256];
-							    format(fstring,256, "[ Firma ]\n%s\nMajitel: %s\nTržba: %d$", dini_Get(fway, "Name"), dini_Get(fway, "Majitel"), Firm[Player[playerid][FirmID]][Trzba]);
+							    format(fstring,256, "[ Firma ]\n%s\nMajitel: %s\nTrzba: %d$", dini_Get(fway, "Name"), dini_Get(fway, "Majitel"), Firm[Player[playerid][FirmID]][Trzba]);
 							    Firm[Player[playerid][FirmID]][Text3D] = Create3DTextLabel(fstring, COLOR_BLUE_LIGHT, Firm[Player[playerid][FirmID]][fpX], Firm[Player[playerid][FirmID]][fpY], Firm[Player[playerid][FirmID]][fpZ], 40, 0);
 
 								new ammo = 0;
@@ -14558,7 +14602,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 
 					    Delete3DTextLabel(Firm[Player[playerid][FirmP]][Text3D]);
 					    new fstring[256];
-						format(fstring,256, "[ Firma ]\n%s\nMajitel: %s\nTržba: %d$", dini_Get(fway, "Name"), dini_Get(fway, "Majitel"), Firm[Player[playerid][FirmP]][Trzba]);
+						format(fstring,256, "[ Firma ]\n%s\nMajitel: %s\nTrzba: %d$", dini_Get(fway, "Name"), dini_Get(fway, "Majitel"), Firm[Player[playerid][FirmP]][Trzba]);
 						Firm[Player[playerid][FirmP]][Text3D] = Create3DTextLabel(fstring, COLOR_BLUE_LIGHT, Firm[Player[playerid][FirmP]][fpX], Firm[Player[playerid][FirmP]][fpY], Firm[Player[playerid][FirmP]][fpZ], 40, 0);
 					}
 
@@ -21702,8 +21746,19 @@ dcmd_admin(playerid,params[])
 	#pragma unused params
 	if(IsPlayerConnected(playerid))
 	{
-		if(Player[playerid][AdminLevel]==0) return ShowPlayerDialog(playerid,Dialog_NoEffect,DIALOG_STYLE_MSGBOX,"Admin Pøíkazy","{ff0000}Nejsi Administrátor !","OK","Cancel");
-		else ShowPlayerDialog(playerid,Dialog_NoEffect,DIALOG_STYLE_MSGBOX,"Admin Pøíkazy","1 Level\n/say /text /clear /getmypos\n\n2 Level\n/mute /unmute /freeze /unfreeze /var /cheattest\n\n3 Level\n/kick /goto /get /spec /unspec /setskin\n\n4 Level\n/ban /hp /player /getall /disarmall /car /cardestroy /mappoint /setweather\n/dmcreate /dmjoin /dmstart /dmend\n\n5 Level\n/gm /gw /setadmin /serverinfo /gmx /setvip /removevip /hidetds\n/showtds /shownt /hident /setrespect /setskill","OK","Cancel");
+		if(Player[playerid][AdminLevel]==0) return ShowPlayerDialog(playerid,Dialog_NoEffect,DIALOG_STYLE_MSGBOX,"{F53737}Admin Panel","{ff0000}Niesi Administrator!","OK","Cancel");
+		else ShowPlayerDialog(playerid,Dialog_NoEffect,DIALOG_STYLE_MSGBOX,"{F53737}Admin Panel","{F53737}[TEST MOD]\n{FFFFFF}/say /text /clear /getmypos\n\n{F53737}[MOD]{FFFFFF}\n/mute /unmute /freeze /unfreeze /var /cheattest\n\n{F53737}[TEST ADMIN]{FFFFFF}\n/kick /goto /get /spec /unspec /setskin\n\n{F53737}[ADMIN]{FFFFFF}\n/ban /hp /player /getall /disarmall /car /cardestroy /mappoint /setweather\n/dmcreate /dmjoin /dmstart /dmend\n\n{F53737}","OK","Cancel");
+	}
+  	return 1;
+}
+
+dcmd_developer(playerid,params[])
+{
+	#pragma unused params
+	if(IsPlayerConnected(playerid))
+	{
+		if(Player[playerid][AdminLevel] < 5) return ShowPlayerDialog(playerid,Dialog_NoEffect,DIALOG_STYLE_MSGBOX,"{F53737}Developer Panel","{ff0000}Niesi Developer!","OK","Cancel");
+		else ShowPlayerDialog(playerid,Dialog_NoEffect,DIALOG_STYLE_MSGBOX,"{F53737}Developer Panel","{FFFFFF}\n/gm /gw /setadmin /serverinfo /gmx /setvip /removevip /hidetds\n/showtds /shownt /hident /setrespect /setskill","OK","Cancel");
 	}
   	return 1;
 }
@@ -23969,7 +24024,7 @@ public TimeUp()
 
 	    if(OilWell_Cash[rv] > 100000) OilWell_Cash[rv]=random(10000);
 
-		format(rv_3DText[rv],32,"Ropný Vrt #%d\nTržba: %d$", rv+1, OilWell_Cash[rv]);
+		format(rv_3DText[rv],32,"Ropný Vrt #%d\nTrzba: %d$", rv+1, OilWell_Cash[rv]);
 		Delete3DTextLabel(OilWell_Text3D[rv]);
 	}
 
@@ -26538,7 +26593,7 @@ public CreateFirm(firmid, Float:x, Float:y, Float:z, price, type)
 	else
 	{
 	    new string[256];
-	    format(string,256, "[ Firma ]\n%s\nMajitel: %s\nTržba: %d$", dini_Get(fway, "Name"), dini_Get(fway, "Majitel"), dini_Int(fway, "Trzba"));
+	    format(string,256, "[ Firma ]\n%s\nMajitel: %s\n: %d$", dini_Get(fway, "Name"), dini_Get(fway, "Majitel"), dini_Int(fway, "Trzba"));
 	    Firm[firmid][Text3D] = Create3DTextLabel(string, COLOR_BLUE_LIGHT, x, y, z, 40, 0);
 	}
 	return 1;
@@ -27283,7 +27338,7 @@ dcmd_vammo(playerid, params[])
 
 //------------------------------------------------------------
 
-dcmd_vcmds(playerid, params[])
+dcmd_vip(playerid, params[])
 {
 	#pragma unused params
 	if(IsPlayerConnected(playerid))
@@ -28301,7 +28356,6 @@ dcmd_mappoint(playerid, params[])
 	return 1;
 }
 
-//------------------------------------------------------------
 
 //------------------------------------------------------------
 
@@ -28336,6 +28390,7 @@ dcmd_gm(playerid, params[])
 }
 
 //------------------------------------------------------------
+//-----------------------------------------------------------
 
 dcmd_car(playerid, params[])
 {
@@ -28360,6 +28415,7 @@ dcmd_car(playerid, params[])
 	        }
 	        else
 	        {
+
 	            GetVehiclePos(GetPlayerVehicleID(playerid),x,y,z);
 	        	GetVehicleZAngle(GetPlayerVehicleID(playerid),a);
 	        }
@@ -28369,7 +28425,10 @@ dcmd_car(playerid, params[])
 
 	        A_Vehicle[avehid] = AddStaticVehicle(id, x2, y2, z+1.25, a+90, color1, color1);
 	        SetVehicleVirtualWorld(A_Vehicle[avehid], GetPlayerVirtualWorld(playerid));
-
+			// Vytvorenie 3D labelu
+			admincarlabel = Create3DTextLabel("Admin Car", 0xFF0000FF, x, y, z + 2.0, 15.0, false);
+        	// Pripnutie 3D labelu k vozidlu
+			Attach3DTextLabelToVehicle(admincarlabel, A_Vehicle[avehid], 0.0, 0.0, 1.5);
 		    SetVehicleNumberPlate(A_Vehicle[avehid], "{0000BB}Admin Car");
 		    SetVehicleToRespawn(A_Vehicle[avehid]);
 		    ResetVehicleFuel(A_Vehicle[avehid]);
@@ -28416,6 +28475,7 @@ dcmd_cardestroy(playerid, params[])
 	        GetPlayerName(playerid,Name,24);
 	        format(msg,128,"Administrátor %s znièil všechtny Admin Vozidla.",Name);
 	        SendClientMessageToAll(COLOR_ADMIN,msg);
+         	Delete3DTextLabel(admincarlabel);
 		}
 	}
     return 1;
