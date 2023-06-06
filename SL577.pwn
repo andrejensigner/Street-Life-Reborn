@@ -2,7 +2,8 @@
 ****************************************************************************************************************************************************************
 
 
-- ORIGINÁLNA NEMODIFIKOVANÁ VERZIA "STREET LIFE 5.77" VYTVORENÁ PAWNEROM "LYRIcS"
+- HERNY MOD UPRAVIL ENSIGNER -- v1.0 BUG FIXES AND MORE...
+- CURRENTLY WORKING ON ENGLISH VERSION FOR ANDROID/PC
 
 
 ****************************************************************************************************************************************************************
@@ -21,7 +22,7 @@ AntiDeAMX()
 	#pragma unused a
 }
 //------------------- MOJE KOKOTINY
-new admincarlabel;
+
 
 
 
@@ -6219,42 +6220,42 @@ public OnPlayerText(playerid, text[])
 			else if(Player[playerid][AdminLevel] == 5) //[DEV] PREFIX -----------------------------------------------------------------
 			{
 			    new AdminPrefix[166];
-       			format(AdminPrefix, sizeof(AdminPrefix), "{F53737}[DEV] %s {ffffff}[ID:%d]: %s", Name, playerid, text[0]); //CHATPREFIX
+       			format(AdminPrefix, sizeof(AdminPrefix), "{F53737}[DEV] {ffffff}%s {F53737}[ID:%d]:{ffffff} %s", Name, playerid, text[0]); //CHATPREFIX
        			SendClientMessageToAll(GetPlayerColor(playerid), AdminPrefix);
 			    return 0;
 			}
 			else if(Player[playerid][AdminLevel] == 4) //[ADMIN] PREFIX -----------------------------------------------------------------
 			{
 			    new AdminPrefix[166];
-       			format(AdminPrefix, sizeof(AdminPrefix), "{F53737}[ADMIN] %s {ffffff}[ID:%d]: %s", Name, playerid, text[0]); //CHATPREFIX
+       			format(AdminPrefix, sizeof(AdminPrefix), "{F53737}[ADMIN] {ffffff}%s {F53737}[ID:%d]:{ffffff} %s", Name, playerid, text[0]); //CHATPREFIX
        			SendClientMessageToAll(GetPlayerColor(playerid), AdminPrefix);
 			    return 0;
 			}
 			else if(Player[playerid][AdminLevel] == 3) //[TEST ADMIN] PREFIX -----------------------------------------------------------------
 			{
 			    new AdminPrefix[166];
-       			format(AdminPrefix, sizeof(AdminPrefix), "{F53737}[TEST ADMIN] %s {ffffff}[ID:%d]: %s", Name, playerid, text[0]); //CHATPREFIX
+       			format(AdminPrefix, sizeof(AdminPrefix), "{F53737}[TEST ADMIN] {ffffff}%s {F53737}[ID:%d]:{ffffff} %s", Name, playerid, text[0]); //CHATPREFIX
        			SendClientMessageToAll(GetPlayerColor(playerid), AdminPrefix);
 			    return 0;
 			}
 			else if(Player[playerid][AdminLevel] == 2) //[MOD] PREFIX -----------------------------------------------------------------
 			{
 			    new AdminPrefix[166];
-       			format(AdminPrefix, sizeof(AdminPrefix), "{F53737}[MOD] %s {ffffff}[ID:%d]: %s", Name, playerid, text[0]); //CHATPREFIX
+       			format(AdminPrefix, sizeof(AdminPrefix), "{F53737}[MOD] {ffffff}%s {F53737}[ID:%d]:{ffffff} %s", Name, playerid, text[0]); //CHATPREFIX
        			SendClientMessageToAll(GetPlayerColor(playerid), AdminPrefix);
 			    return 0;
 			}
 			else if(Player[playerid][AdminLevel] == 1) //[TEST MOD] PREFIX -----------------------------------------------------------------
 			{
 			    new AdminPrefix[166];
-       			format(AdminPrefix, sizeof(AdminPrefix), "{F53737}[TEST MOD] %s {ffffff}[ID:%d]: %s", Name, playerid, text[0]); //CHATPREFIX
+       			format(AdminPrefix, sizeof(AdminPrefix), "{F53737}[TEST MOD] {ffffff}%s {F53737}[ID:%d]:{ffffff} %s", Name, playerid, text[0]); //CHATPREFIX
        			SendClientMessageToAll(GetPlayerColor(playerid), AdminPrefix);
 			    return 0;
 			}
 			else
 			{
 			
-			    format(gBIGSTRING,sizeof(gBIGSTRING),"[HRAC] %s [ID:%d]:{ffffff} %s",Name,playerid,text[0]); //CHATPREFIX
+			    format(gBIGSTRING,sizeof(gBIGSTRING),"%s {F53737}[ID:%d]:{ffffff} %s",Name,playerid,text[0]); //CHATPREFIX
 				SendClientMessageToAll(GetPlayerColor(playerid),gBIGSTRING);
 				return 0;
 			}
@@ -15654,10 +15655,10 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 
 		    	if(listitem == 1)
 		    	{
-		    	    if(Player[playerid][ClanP] != 9999) return SendClientMessage(playerid,COLOR_WARNING,"[  !  ]{ffffff} Nemùžeš mít víc než 2 clany nebo být v clanu když si clan kupuješ !");
-		    	    else if(GetPlayerACMoney(playerid) < 1000000) return SendClientMessage(playerid,COLOR_WARNING,"[  !  ]{ffffff} Na koupení clanu potøebuješ 1 000 000$ !");
-		    	    else if(Player[playerid][Hours] < 10) return SendClientMessage(playerid,COLOR_WARNING,"[  !  ]{ffffff} Aby sis mohl koupit clan potøebuješ mít odehraných alespoò 10 hodin !");
-		    	    else if(Player[playerid][Respect] < 25) return SendClientMessage(playerid,COLOR_WARNING,"[  !  ]{ffffff} Aby sis mohl koupit clan potøebuješ mít minimálnì 25 respektu !");
+		    	    if(Player[playerid][ClanP] != 9999) return SendClientMessage(playerid,COLOR_WARNING,"{F53737}[CLAN SYSTEM]{ffffff} Nemozes vlastnit 2 clany alebo byt clenom ineho clanu !");
+		    	    else if(GetPlayerACMoney(playerid) < 1000000) return SendClientMessage(playerid,COLOR_WARNING,"{F53737}[CLAN SYSTEM]{ffffff} Na kupenie clanu potrebujes 1.000.000$ !");
+		    	    else if(Player[playerid][Hours] < 5) return SendClientMessage(playerid,COLOR_WARNING,"{F53737}[CLAN SYSTEM]{ffffff} Aby si mohol kupit clan potrebujes aspon 5hodin !"); //CLAN MESSAGE
+		    	    else if(Player[playerid][Respect] < 25) return SendClientMessage(playerid,COLOR_WARNING,"{F53737}[CLAN SYSTEM]{ffffff} Aby si mohol kupit clan potrebujes aspon 25 uroven respektu !");
 		    	    else
 		    	    {
 		    	        Player[playerid][ClanP] = clanid;
@@ -15690,7 +15691,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 
 						Clan[clanid][cText3D] = Create3DTextLabel(c3Dstring, COLOR_PURPLE, Clan[clanid][cpeX], Clan[clanid][cpeY], Clan[clanid][cpeZ], 50, 0);
 
-						SendClientMessage(playerid, COLOR_BLUE, "Koupil si clan !");
+						SendClientMessage(playerid, COLOR_BLUE, "{F53737}[ACHIEVEMENT]{ffffff} Kupil si clan !");
 		    	    }
 		    	}
 		    }
@@ -15718,7 +15719,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 
 		    	if(listitem == 1)
 		    	{
-		    	    ShowPlayerDialog(playerid,Dialog_ClanPlayers,DIALOG_STYLE_LIST,"Seznam èlenù", "Online\nVšichtni", "OK", "Cancel");
+		    	    ShowPlayerDialog(playerid,Dialog_ClanPlayers,DIALOG_STYLE_LIST,"Zoznam Clenov", "Online\nVsetci", "OK", "Cancel");
 		    	}
 
 		    	if(listitem == 2)
@@ -15747,16 +15748,16 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 		    	if(listitem == 3)
 		    	{
 		    	    new t1[128];
-		    	    format(t1, 128, "{ffff50}Aktuálni stav konta clanu: %d$\nZadej sumu kterou chceš vložit na úèet clanu:", Clan[Player[playerid][ClanID]][Bank]);
+		    	    format(t1, 128, "{ffff50}Stav konta clanu: %d$\nZadaj sumu ktoru chces vlozit:", Clan[Player[playerid][ClanID]][Bank]);
 
-		    	    ShowPlayerDialog(playerid,Dialog_ClanSetMoney,DIALOG_STYLE_INPUT,"Vložit peníze na úèet clanu", t1, "OK", "Cancel");
+		    	    ShowPlayerDialog(playerid,Dialog_ClanSetMoney,DIALOG_STYLE_INPUT,"Vlozit peniaze na ucet clanu", t1, "OK", "Cancel");
 		    	}
 
 		    	if(listitem == 4)
 		    	{
-			        	 if(Player[playerid][ClanID] != Player[playerid][ClanP]) return ShowPlayerDialog(playerid,Dialog_NoEffect,DIALOG_STYLE_MSGBOX,"Info Box", "{ff0000}Nejsi èlenem tohto clanu !", "OK", "");
-			        else if(Player[playerid][ClanRank] != 0) return ShowPlayerDialog(playerid,Dialog_NoEffect,DIALOG_STYLE_MSGBOX,"Info Box", "{ff0000}Nejsi majitel tohto clanu !", "OK", "");
-		    	    else ShowPlayerDialog(playerid,Dialog_ClanA_Menu,DIALOG_STYLE_LIST,"Administrace Clanu","Správa èlenù\nPøizvat hráèe do clanu\nSpráva vozidel\nSpráva zbraní\nZmìnit jméno clanu\nZmìnit farbu clanu\nVybrat peníze z úètu\nUpgrady\nProdat clan (75% z ceny)","OK","Cancel");
+			        	 if(Player[playerid][ClanID] != Player[playerid][ClanP]) return ShowPlayerDialog(playerid,Dialog_NoEffect,DIALOG_STYLE_MSGBOX,"Info Box", "{ff0000}Niesi clen tohto clanu !", "OK", "");
+			        else if(Player[playerid][ClanRank] != 0) return ShowPlayerDialog(playerid,Dialog_NoEffect,DIALOG_STYLE_MSGBOX,"Info Box", "{ff0000}Niesi majitel tohto clanu !", "OK", "");
+		    	    else ShowPlayerDialog(playerid,Dialog_ClanA_Menu,DIALOG_STYLE_LIST,"Administracia Clanu","Spravca clenov\nPozvat hraca\nSpravca vozidiel\nSpravca zbrani\nZmenit meno clanu\nZmenit farbu clanu\nVybrat peniaze z uctu\nVylepsenie clanu\nPredat Clan (75% z ceny)","OK","Cancel");
 		    	}
 		    }
 
@@ -15806,9 +15807,9 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 
 		        if(listitem == 1)
 		        {
-						 if(Clan[Player[playerid][ClanP]][Players] >= 12) return ShowPlayerDialog(playerid,Dialog_NoEffect,DIALOG_STYLE_MSGBOX,"Info Box", "{ff0000}Clan má již maximálny poèet èlenù !", "OK", "");
-		            else if(Clan[Player[playerid][ClanP]][Players] >= Clan[Player[playerid][ClanP]][MaxPlayers]) return ShowPlayerDialog(playerid,Dialog_NoEffect,DIALOG_STYLE_MSGBOX,"Info Box", "{ff0000}Clan má již maximálny poèet èlenù !\nJestli chceš mít v clanu víc hráèù, musíš si zvýšit respekt !", "OK", "");
-		            else ShowPlayerDialog(playerid,Dialog_ClanA_InvitePlayer,DIALOG_STYLE_INPUT,"Pøizvat hráèe do clanu","{ffff50}Zadej ID hráèe:","Pøizvat","Cancel");
+						 if(Clan[Player[playerid][ClanP]][Players] >= 12) return ShowPlayerDialog(playerid,Dialog_NoEffect,DIALOG_STYLE_MSGBOX,"Info Box", "{ff0000}Clan dosiahol maximalny pocet clenov !", "OK", "");
+		            else if(Clan[Player[playerid][ClanP]][Players] >= Clan[Player[playerid][ClanP]][MaxPlayers]) return ShowPlayerDialog(playerid,Dialog_NoEffect,DIALOG_STYLE_MSGBOX,"Info Box", "{ff0000}Clan dosiahol maximalny pocet clenov !\nPokial chces viac clenov v clane musis zvysit respekt !", "OK", "");
+		            else ShowPlayerDialog(playerid,Dialog_ClanA_InvitePlayer,DIALOG_STYLE_INPUT,"Pozvat hraca do clanu","{ffff50}Zadaj ID hraca:","Pozvat","Cancel");
 		        }
 
 		        if(listitem == 2)
@@ -15831,7 +15832,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 		    	    else if(Clan[Player[playerid][ClanP]][Vehicles] == 4) format(strText1,256, "%s\n%s\n%s\n%s", veh1[0], veh1[1], veh1[2], veh1[3]);
 		    	    else if(Clan[Player[playerid][ClanP]][Vehicles] == 5) format(strText1,256, "%s\n%s\n%s\n%s\n%s", veh1[0], veh1[1], veh1[2], veh1[3], veh1[4]);
 
-		    	    ShowPlayerDialog(playerid, Dialog_ClanA_Vehicles, DIALOG_STYLE_LIST, "Správa vozidel", strText1, "OK", "Cancel");
+		    	    ShowPlayerDialog(playerid, Dialog_ClanA_Vehicles, DIALOG_STYLE_LIST, "Spravca Vozidiel", strText1, "OK", "Cancel");
 		        }
 
 		        if(listitem == 3)
@@ -15865,35 +15866,35 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 		 			else if(dini_Int(cway, "WeaponSlots") == 7) format(gBIGSTRING,sizeof(gBIGSTRING), "%s%s\n%s%s\n%s%s\n%s%s\n%s%s\n%s%s\n%s%s", w[0],a[0],w[1],a[1],w[2],a[2],w[3],a[3],w[4],a[4],w[5],a[5],w[6],a[6]);
 		 			else if(dini_Int(cway, "WeaponSlots") == 8) format(gBIGSTRING,sizeof(gBIGSTRING), "%s%s\n%s%s\n%s%s\n%s%s\n%s%s\n%s%s\n%s%s\n%s%s", w[0],a[0],w[1],a[1],w[2],a[2],w[3],a[3],w[4],a[4],w[5],a[5],w[6],a[6],w[7],a[7]);
 
-					ShowPlayerDialog(playerid,Dialog_ClanA_WList,DIALOG_STYLE_LIST,"Správa zbraní",gBIGSTRING,"OK","Cancel");
+					ShowPlayerDialog(playerid,Dialog_ClanA_WList,DIALOG_STYLE_LIST,"Spravca Zbrani",gBIGSTRING,"OK","Cancel");
 		        }
 
 		        if(listitem == 4)
 		        {
-		            ShowPlayerDialog(playerid,Dialog_ClanA_ChangeClanName,DIALOG_STYLE_INPUT,"Zmìna jména clanu","{ffff50}Zadej nové jméno clanu:","Zmìnit","Cancel");
+		            ShowPlayerDialog(playerid,Dialog_ClanA_ChangeClanName,DIALOG_STYLE_INPUT,"Zmena nazvu clanu","{ffff50}Zadaj novy nazov clanu:","Zmenit","Cancel");
 		        }
 
 		        if(listitem == 5)
 		        {
-			        ShowPlayerDialog(playerid,Dialog_ClanA_ChangeClanColor,DIALOG_STYLE_LIST,"Zmìna farby clanu","Black\nWhite\nSilver\nYellow\nLight yellow\nGreen\nDark green\nLight green\nPurple\nPink\nBlue\nDark blue\nBrown\nCyan\nOrange","Zmìnit","Cancel");
+			        ShowPlayerDialog(playerid,Dialog_ClanA_ChangeClanColor,DIALOG_STYLE_LIST,"Zmena farby clanu","Black\nWhite\nSilver\nYellow\nLight yellow\nGreen\nDark green\nLight green\nPurple\nPink\nBlue\nDark blue\nBrown\nCyan\nOrange","Zmenit","Cancel");
 		        }
 
 		        if(listitem == 6)
 		        {
 		            new XXXf0054[128];
-		            format(XXXf0054,128, "{ffff50}Aktuálni stav konta: %d$\nZadej sumu kterou chceš vybrat z clanu:", Clan[Player[playerid][ClanP]][Bank]);
+		            format(XXXf0054,128, "{ffff50}Aktuálni stav konta: %d$\nZadaj sumu ktoru chces vybrat z clanu:", Clan[Player[playerid][ClanP]][Bank]);
 
-			        ShowPlayerDialog(playerid,Dialog_ClanA_GetClanBank,DIALOG_STYLE_INPUT,"Vybrat peníze u úètu clanu", XXXf0054,"Vybrat","Cancel");
+			        ShowPlayerDialog(playerid,Dialog_ClanA_GetClanBank,DIALOG_STYLE_INPUT,"Vyberat peniaze z clanu", XXXf0054,"Vybrat","Cancel");
 		        }
 
 		        if(listitem == 7)
 		        {
-		            ShowPlayerDialog(playerid,Dialog_ClanA_Upgrades,DIALOG_STYLE_LIST,"Upgrady","Pøidat parkovací místo (1 000 000$)\nPøidat weapon slot (250 000$)\nZmìnit interiér sídla\nUbrat parkovací místo\nUbrat weapon slot","OK","Cancel");
+		            ShowPlayerDialog(playerid,Dialog_ClanA_Upgrades,DIALOG_STYLE_LIST,"Vylepsenia","Pridat parkovacie miesto (1 000 000$)\nPridat miesto na zbrane (250 000$)\nZmenit interier clanu\nUbrat parkovací místo\nUbrat weapon slot","OK","Cancel");
 		        }
 
 		        if(listitem == 8)
 		        {
-		            if(Player[playerid][ClanID] != Player[playerid][ClanP]) return ShowPlayerDialog(playerid,Dialog_NoEffect,DIALOG_STYLE_MSGBOX,"Info Box", "{ff0000}Nejsi majitel tohto clanu !", "OK", "");
+		            if(Player[playerid][ClanID] != Player[playerid][ClanP]) return ShowPlayerDialog(playerid,Dialog_NoEffect,DIALOG_STYLE_MSGBOX,"Info Box", "{ff0000}Niesi majitel tohto clanu !", "OK", "");
 		            else
 					{
 		            	new clanid4f65 = Player[playerid][ClanP];
@@ -15902,12 +15903,12 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 
 		            	GivePlayerACMoney(playerid, 750000);
 
-		            	ShowPlayerDialog(playerid,Dialog_NoEffect,DIALOG_STYLE_MSGBOX,"Prodal si clan","{ffff50}Prodal si svùj clan za 750 000$ !","OK","");
+		            	ShowPlayerDialog(playerid,Dialog_NoEffect,DIALOG_STYLE_MSGBOX,"Predal si clan","{ffff50}Predal si svoj clan za 750 000$ !","OK","");
 
 		            	new Name[24];
 		            	GetPlayerName(playerid, Name, 24);
 		            	new cstring7f18[128];
-		            	format(cstring7f18,128, "Clan %s byl zrušen hráèem %s (%d) !", dini_Get(cway1f09, "Name"), Name, playerid);
+		            	format(cstring7f18,128, "Clan %s bol zruseny hracom %s (%d) !", dini_Get(cway1f09, "Name"), Name, playerid);
 		            	SendClientMessageToAll(COLOR_YELLOW_LIGHT, cstring7f18);
 
 		            	Clan[clanid4f65][State] = 0;
@@ -15952,7 +15953,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 						Delete3DTextLabel(Clan[clanid4f65][cText3D]);
 
 						new c3Dstring47[150];
-		 				format(c3Dstring47, 150, "[ Clan ]\n%s\nVolný Clan", dini_Get(cway1f09, "Name"));
+		 				format(c3Dstring47, 150, "[ Clan ]\n%s\nVolny Clan", dini_Get(cway1f09, "Name"));
 
 						Clan[clanid4f65][cText3D] = Create3DTextLabel(c3Dstring47, COLOR_PURPLE, Clan[clanid4f65][cpeX], Clan[clanid4f65][cpeY], Clan[clanid4f65][cpeZ], 50, 0);
 
@@ -15975,7 +15976,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 
 		        Player[playerid][Clan_SaveWeaponID] = listitem;
 
-		        ShowPlayerDialog(playerid,Dialog_ClanA_WInfo,DIALOG_STYLE_LIST,"Detaily zbrane","Dokoupit zásoby\nNahradit zbraò\nZrušit zbraò","OK","Cancel");
+		        ShowPlayerDialog(playerid,Dialog_ClanA_WInfo,DIALOG_STYLE_LIST,"Detaily zbrane","Dokupit zasoby\nNahradit zbran\nZrusit zbran","OK","Cancel");
 		    }
 
 		    if(response == 0) Player[playerid][IPIP]=false;
@@ -15995,7 +15996,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 		        format(W_id,16, "W%d_id", Player[playerid][Clan_SaveWeaponID]);
 		        format(W_ammo,16, "W%d_ammo", Player[playerid][Clan_SaveWeaponID]);
 
-		        if((listitem != 1) && (dini_Int(cway0f71, W_id) == 0)) return ShowPlayerDialog(playerid,Dialog_NoEffect,DIALOG_STYLE_MSGBOX,"Info Box","{ff0000}Na tomhle slotu není zbraò !\nMusíš zbraò koupit abys mohl dokupovat zásoby !","Cancel","");
+		        if((listitem != 1) && (dini_Int(cway0f71, W_id) == 0)) return ShowPlayerDialog(playerid,Dialog_NoEffect,DIALOG_STYLE_MSGBOX,"Info Box","{ff0000}Na tomto slote neni zbran !\nMusis kupit zbran aby si mohol dokupit zasoby !","Cancel","");
 		        else
 		        {
 		            new trwqew[256];
@@ -16018,14 +16019,14 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 
 			        if(listitem == 0)
 			        {
-			        	format(trwqew,256,"{ffff50}Zbraò: {ff0000}%s{ffff50}\nPoèet kusù: {ff0000}%d{ffff50} ks\n\nCena 1 kusu: {ff0000}%d$\n{ffff00}Zadej poèet kusù které chceš dokoupit:", WeaponName(dini_Int(cway0f71, W_id)), dini_Int(cway0f71, W_ammo), wprice);
+			        	format(trwqew,256,"{ffff50}Zbran: {ff0000}%s{ffff50}\nPocet: {ff0000}%d{ffff50} ks\n\nCena 1 kusu: {ff0000}%d$\n{ffff00}Zadaj pocet kolko chces kupit:", WeaponName(dini_Int(cway0f71, W_id)), dini_Int(cway0f71, W_ammo), wprice);
 
 			            ShowPlayerDialog(playerid,Dialog_ClanA_WPlus,DIALOG_STYLE_INPUT,"Dokoupit zásoby",trwqew,"Dokoupit","Cancel");
 			        }
 
 			        if(listitem == 1)
 			        {
-			            ShowPlayerDialog(playerid,Dialog_ClanA_WNew,DIALOG_STYLE_LIST,"Nahradit zbraò","9 mm\n9mm + tlmiè\nDesert Eagle\nBrokovnica\nSawn - Off\nCombat Shotgun\nUZI\nSMG\nAK - 47\nM4\nTec 9\nPuška\nSniperka\nGranát","Dokoupit","Cancel");
+			            ShowPlayerDialog(playerid,Dialog_ClanA_WNew,DIALOG_STYLE_LIST,"Nahradit zbran","9 mm\n9mm + silencer\nDesert Eagle\nBrokovnica\nSawn - Off\nCombat Shotgun\nUZI\nSMG\nAK - 47\nM4\nTec 9\nPuska\nSniperka\nGranat","Dokoupit","Cancel");
 			        }
 
 			        if(listitem == 2)
@@ -16126,17 +16127,17 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 
 		        if(!strlen(inputtext))
 				{
-				    format(vcxtrew,256,"{ff0000}Nezadal si poèet kusù !\n\n{ffff50}Zbraò: {ff0000}%s{ffff50}\nPoèet kusù: {ff0000}%d{ffff50} ks\n\nCena 1 kusu: {ff0000}%d$\n{ffff00}Zadej poèet kusù které chceš dokoupit:", WeaponName(dini_Int(cway9f711, W_id3)), dini_Int(cway9f711, W_ammo3), wprice);
+				    format(vcxtrew,256,"{ff0000}Nezadal si pocet !\n\n{ffff50}Zbran: {ff0000}%s{ffff50}\nPocet: {ff0000}%d{ffff50} ks\n\nCena 1 kusu: {ff0000}%d$\n{ffff00}Zadaj pocet kolko chces kupit:", WeaponName(dini_Int(cway9f711, W_id3)), dini_Int(cway9f711, W_ammo3), wprice);
 				    return ShowPlayerDialog(playerid,Dialog_ClanA_WPlus,DIALOG_STYLE_INPUT,"Dokoupit zásoby",vcxtrew,"Dokoupit","Cancel");
 				}
 		        else if(howmuch <= 0)
 		        {
-				    format(vcxtrew,256,"{ff0000}Nemùžeš zadat nulu nebo zápornou hodnotu !\n\n{ffff50}Zbraò: {ff0000}%s{ffff50}\nPoèet kusù: {ff0000}%d{ffff50} ks\n\nCena 1 kusu: {ff0000}%d$\n{ffff00}Zadej poèet kusù které chceš dokoupit:", WeaponName(dini_Int(cway9f711, W_id3)), dini_Int(cway9f711, W_ammo3), wprice);
+				    format(vcxtrew,256,"{ff0000}Nemozes zadat nulovu hodnotu !\n\n{ffff50}Zbran: {ff0000}%s{ffff50}\nPocet: {ff0000}%d{ffff50} ks\n\nCena 1 kusu: {ff0000}%d$\n{ffff00}Zadaj pocet kolko chces kupit:", WeaponName(dini_Int(cway9f711, W_id3)), dini_Int(cway9f711, W_ammo3), wprice);
 				    return ShowPlayerDialog(playerid,Dialog_ClanA_WPlus,DIALOG_STYLE_INPUT,"Dokoupit zásoby",vcxtrew,"Dokoupit","Cancel");
 		        }
 		        else if(price > Clan[Player[playerid][ClanP]][Bank])
 		        {
-				    format(vcxtrew,256,"{ff0000}V clanu není dostatek penìz !\n\n{ffff50}Zbraò: {ff0000}%s{ffff50}\nPoèet kusù: {ff0000}%d{ffff50} ks\n\nCena 1 kusu: {ff0000}%d$\n{ffff00}Zadej poèet kusù které chceš dokoupit:", WeaponName(dini_Int(cway9f711, W_id3)), dini_Int(cway9f711, W_ammo3), wprice);
+				    format(vcxtrew,256,"{ff0000}V clanu neni dostatok prostriedkov !\n\n{ffff50}Zbran: {ff0000}%s{ffff50}\nPocet: {ff0000}%d{ffff50} ks\n\nCena 1 kusu: {ff0000}%d$\n{ffff00}Zadaj pocet kolko chces kupit::", WeaponName(dini_Int(cway9f711, W_id3)), dini_Int(cway9f711, W_ammo3), wprice);
 				    return ShowPlayerDialog(playerid,Dialog_ClanA_WPlus,DIALOG_STYLE_INPUT,"Dokoupit zásoby",vcxtrew,"Dokoupit","Cancel");
 		        }
 		        else
@@ -16155,7 +16156,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 
 					Clan[Player[playerid][ClanP]][cText3D] = Create3DTextLabel(c3Dstring, COLOR_PURPLE, Clan[Player[playerid][ClanP]][cpeX], Clan[Player[playerid][ClanP]][cpeY], Clan[Player[playerid][ClanP]][cpeZ], 50, 0);
 
-		            format(vcxtrew,256, "{00bb00}Úspìšne si dokoupil %d kusù zbranì %s za %d$.\nAktuálni stav: %s - %d kusù", howmuch, WeaponName(dini_Int(cway9f711, W_id3)), price, WeaponName(dini_Int(cway9f711, W_id3)), dini_Int(cway9f711, W_ammo3));
+		            format(vcxtrew,256, "{00bb00}Uspesne si dokupil %d ks %s za %d$.\nAktualny stav: %s - %d ks", howmuch, WeaponName(dini_Int(cway9f711, W_id3)), price, WeaponName(dini_Int(cway9f711, W_id3)), dini_Int(cway9f711, W_ammo3));
 		            ShowPlayerDialog(playerid, Dialog_NoEffect, DIALOG_STYLE_MSGBOX, "Info Box", vcxtrew, "OK", "");
 		        }
 		    }
@@ -16181,7 +16182,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 		        if(dini_Int(cway9f971, V_id) == 0) strew="{606060}- empty -";
 				else format(strew, 32, "{ffffff}%s", VehicleName[dini_Int(cway9f971, V_id) - 400]);
 
-		        ShowPlayerDialog(playerid,Dialog_ClanA_VehMenu,DIALOG_STYLE_LIST,strew,"Koupit nové vozidlo\nPøebarvit vozidlo\nPozice vozidla\nRespawn vozidla\nProdat vozidlo","OK","Cancel");
+		        ShowPlayerDialog(playerid,Dialog_ClanA_VehMenu,DIALOG_STYLE_LIST,strew,"Kupit nove vozidlo\nPrefarbit vozidlo\nPozice vozidla\nRespawn vozidla\nProdat vozidlo","OK","Cancel");
 		    }
 
 		    if(response == 0) Player[playerid][IPIP]=false;
@@ -16264,7 +16265,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 
 		        Player[playerid][Clan_SaveVehicleID] = modelid;
 
-		        format(cStringXf44,128,"{ffffff}Jméno: {ffff50}%s\n{ffffff}Cena: {ffff50}%d$", VehicleName[modelid - 400], GetClanVehiclePrice(modelid));
+		        format(cStringXf44,128,"{ffffff}Meno: {ffff50}%s\n{ffffff}Cena: {ffff50}%d$", VehicleName[modelid - 400], GetClanVehiclePrice(modelid));
 
 		        ShowPlayerDialog(playerid,Dialog_ClanA_NewVehInfo,DIALOG_STYLE_MSGBOX, VehicleName[modelid - 400], cStringXf44, "Koupit", "Cancel");
 		    }
@@ -16336,19 +16337,19 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 
 		        if(listitem == 0)
 		        {
-		            if(dini_Int(cway9f971, V_id) != 0) return ShowPlayerDialog(playerid,Dialog_NoEffect,DIALOG_STYLE_MSGBOX,"{ffff00}Info Box","{ff0000}Nejdøív musíš prodat staré vozidlo na tomhle slotu !","Cancel","");
+		            if(dini_Int(cway9f971, V_id) != 0) return ShowPlayerDialog(playerid,Dialog_NoEffect,DIALOG_STYLE_MSGBOX,"{ffff00}Info Box","{ff0000}Najskor musis predat stare vozidlo na tomto slote !","Cancel","");
 		            else ShowPlayerDialog(playerid,Dialog_ClanA_NewVehList,DIALOG_STYLE_LIST,"{ffff50}Koupit nové vozidlo","Sentinel\nInfernus\nCheetah\nMoonbeam\nEsperanto\nMonster\nTurismo\nPatriot\nRancher\nFBI Rancher\nGreenwood\nHotring\nSandking\nSuper GT\nNebula\nFCR - 900\nNRG - 500\nFeltzer\nSlamvan\nBlade\nBullet\nSunrise\nMerit\nWindsor\nUranus\nJester\nSultan\nElegy\nFlash\nHuntley\nBF - 400\nEuros\nAlpha\nPhoenix","OK","Cancel");
 		        }
 
 		        if(listitem == 1)
 		        {
-		            if(dini_Int(cway9f971, V_id) == 0) return ShowPlayerDialog(playerid,Dialog_NoEffect,DIALOG_STYLE_MSGBOX,"{ffff00}Info Box","{ff0000}Na tomhle slotu není žádne vozidlo !","Cancel","");
+		            if(dini_Int(cway9f971, V_id) == 0) return ShowPlayerDialog(playerid,Dialog_NoEffect,DIALOG_STYLE_MSGBOX,"{ffff00}Info Box","{ff0000}Na tomto slote nieje ziadne vozidlo !","Cancel","");
 		            else ShowPlayerDialog(playerid,Dialog_ClanA_VehColors,DIALOG_STYLE_LIST,"Pøebarvení vozidla (1000$)","Black\nWhite\nBlue\nRed\nSilver\nYellow\nPink\nGreen","OK","Cancel");
 		        }
 
 				if(listitem == 2)
 				{
-		            if(dini_Int(cway9f971, V_id) == 0) return ShowPlayerDialog(playerid,Dialog_NoEffect,DIALOG_STYLE_MSGBOX,"{ffff00}Info Box","{ff0000}Na tomhle slotu není žádne vozidlo !","Cancel","");
+		            if(dini_Int(cway9f971, V_id) == 0) return ShowPlayerDialog(playerid,Dialog_NoEffect,DIALOG_STYLE_MSGBOX,"{ffff00}Info Box","{ff0000}Na tomhle slotu nieje ziadne vozidlo !","Cancel","");
 					else
 					{
 						new Float:vX, Float:vY, Float:vZ;
@@ -26593,7 +26594,7 @@ public CreateFirm(firmid, Float:x, Float:y, Float:z, price, type)
 	else
 	{
 	    new string[256];
-	    format(string,256, "[ Firma ]\n%s\nMajitel: %s\n: %d$", dini_Get(fway, "Name"), dini_Get(fway, "Majitel"), dini_Int(fway, "Trzba"));
+	    format(string,256, "[ Firma ]\n%s\nMajitel: %s\nTržba: %d$", dini_Get(fway, "Name"), dini_Get(fway, "Majitel"), dini_Int(fway, "Trzba"));
 	    Firm[firmid][Text3D] = Create3DTextLabel(string, COLOR_BLUE_LIGHT, x, y, z, 40, 0);
 	}
 	return 1;
@@ -28426,7 +28427,7 @@ dcmd_car(playerid, params[])
 	        A_Vehicle[avehid] = AddStaticVehicle(id, x2, y2, z+1.25, a+90, color1, color1);
 	        SetVehicleVirtualWorld(A_Vehicle[avehid], GetPlayerVirtualWorld(playerid));
 			// Vytvorenie 3D labelu
-			admincarlabel = Create3DTextLabel("Admin Car", 0xFF0000FF, x, y, z + 2.0, 15.0, false);
+			new Text3D:admincarlabel = Create3DTextLabel("Admin Car", 0xFF0000FF, x, y, z + 2.0, 15.0, false);
         	// Pripnutie 3D labelu k vozidlu
 			Attach3DTextLabelToVehicle(admincarlabel, A_Vehicle[avehid], 0.0, 0.0, 1.5);
 		    SetVehicleNumberPlate(A_Vehicle[avehid], "{0000BB}Admin Car");
@@ -28475,7 +28476,8 @@ dcmd_cardestroy(playerid, params[])
 	        GetPlayerName(playerid,Name,24);
 	        format(msg,128,"Administrátor %s znièil všechtny Admin Vozidla.",Name);
 	        SendClientMessageToAll(COLOR_ADMIN,msg);
-         	Delete3DTextLabel(admincarlabel);
+         	new Text3D:admincarlabel;
+			Delete3DTextLabel(admincarlabel);
 		}
 	}
     return 1;
